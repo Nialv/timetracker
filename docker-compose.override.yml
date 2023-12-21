@@ -1,0 +1,26 @@
+version: '3'
+services:
+  time-tracker-web:
+    build:
+      context: ./time-tracker-web
+      dockerfile: dockerfile.development
+    ports:
+      - "8080:8080"
+
+  time-tracker-api:
+    build:
+      context: ./time-tracker-api
+      dockerfile: dockerfile.development 
+    ports:
+      - "3000:3000"
+    depends_on:
+      - time-tracker-database
+
+  time-tracker-database:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: oowlish
+      POSTGRES_PASSWORD: oowlish
+      POSTGRES_DB: timetracker
+    ports:
+      - "5432:5432"

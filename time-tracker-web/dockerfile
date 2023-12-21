@@ -1,0 +1,32 @@
+# Stage 1: Build the frontend
+FROM node:18.13.0 as build
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+COPY . .
+
+RUN npm run build
+
+# Stage 2: Create the production image
+FROM node:18-alpine as production
+
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY --from=build /app/package.json ./
+COPY --from=build /app/package-lock.json ./
+
+# Install production dependencies including `serve`
+RUN npm install --only=production
+
+# Copy the built frontend files from the build stage to the production container
+COPY --from=build /app/dist ./build
+
+# Expose the port that the frontend app will run on
+EXPOSE 8080
+
+# Start the frontend application using `serve`
+CMD ["npm", "start"]
+
