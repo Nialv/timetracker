@@ -13,3 +13,7 @@ start dockers with docker compose (production):
 start docker with bash:
     ```chmod +x ./bin/bash.sh```
     ```./bin/bash.sh```
+
+# Database Schema ( ER - UML):
+    
+![ER-UML_OOWLISH](https://github.com/Nialv/oowlish_timetracker/assets/132946870/f9358e7b-a6dc-4c39-8e65-1a271d33bcb8)
