@@ -6,6 +6,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    environment:
+      - VITE_API_URL
+    volumes:
+      - ./time-tracker-web:/app
+      - /app/node_modules # Creates a volume for node_modules that's separate from the host
 
   time-tracker-api:
     build:
@@ -15,12 +20,22 @@ services:
       - "3000:3000"
     depends_on:
       - time-tracker-database
+    environment:
+      - TIME_TRACKER_REFRESH_KEY
+      - TIME_TRACKER_KEY
+      - PSQL_DB_USER
+      - PSQL_DB_PASSWORD
+      - PSQL_DB_HOST
+      - PSQL_DB_DATABASE
+      - PSQL_DB_PORT
+    volumes:
+      - ./time-tracker-api:/app
 
   time-tracker-database:
     image: postgres:latest
     environment:
-      POSTGRES_USER: oowlish
-      POSTGRES_PASSWORD: oowlish
-      POSTGRES_DB: timetracker
+      POSTGRES_USER: "${PSQL_DB_USER}"
+      POSTGRES_PASSWORD: "${PSQL_DB_PASSWORD}"
+      POSTGRES_DB: "${PSQL_DB_DATABASE}"
     ports:
       - "5432:5432"

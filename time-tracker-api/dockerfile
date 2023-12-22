@@ -16,6 +16,9 @@ COPY . .
 # Build the application
 RUN npm run build
 
+# Set execute permission for the entrypoint script
+RUN ["chmod", "+x", "./docker/entrypoint.sh"]
+
 # Expose the port that the backend app will run on (adjust as needed)
 EXPOSE 3000
 

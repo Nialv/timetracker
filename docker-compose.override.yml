@@ -15,12 +15,3 @@ services:
       - "3000:3000"
     depends_on:
       - time-tracker-database
-
-  time-tracker-database:
-    image: postgres:latest
-    environment:
-      POSTGRES_USER: oowlish
-      POSTGRES_PASSWORD: oowlish
-      POSTGRES_DB: timetracker
-    ports:
-      - "5432:5432"
