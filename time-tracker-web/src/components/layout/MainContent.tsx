@@ -1,4 +1,4 @@
-import TimeActivityReport from "./TimeActivityReport";
+import TimeActivityReport from "../TimeActivityReport";
 
 const MainContent = () => {
   return (

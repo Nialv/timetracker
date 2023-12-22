@@ -1,84 +1,47 @@
-import { SelectOptions } from "../interfaces/SelectOptions";
+import { SelectOptions } from "interfaces/SelectOptions";
 import CalendarComponent from "./CalendarComponent";
-import Select from "./Select";
-
-const taskOptions: SelectOptions[] = [
-  {
-    name: "Planning & Analysis",
-    value: "Planning & Analysis",
-  },
-  {
-    name: "Design",
-    value: "Design",
-  },
-  {
-    name: "Development",
-    value: "Development",
-  },
-  {
-    name: "Testing",
-    value: "Testing",
-  },
-  {
-    name: "Maintenance and Monitoring",
-    value: "Maintenance and Monitoring",
-  },
-  {
-    name: "Documentation",
-    value: "Documentation",
-  },
-  {
-    name: "Collaboration and Review",
-    value: "Collaboration and Review",
-  },
-  {
-    name: "Continuous Learning and Adaptation",
-    value: "Continuous Learning and Adaptation",
-  },
-  {
-    name: "Security",
-    value: "Security",
-  },
-];
+import Select from "./common/Select";
+import { useEffect, useState } from "react";
+import timeTrackerApiInstance from "config/axios";
 
 const subTaskOptions: SelectOptions[] = [
   {
     name: "Requirement Gathering",
-    value: "Requirement Gathering",
+    id: "Requirement Gathering",
   },
   {
     name: "Architecture Design",
-    value: "Architecture Design",
+    id: "Architecture Design",
   },
   {
     name: "UI/UX Design",
-    value: "UI/UX Design",
+    id: "UI/UX Design",
   },
   {
     name: "Database Design",
-    value: "Database Design",
+    id: "Database Design",
   },
   {
     name: "Requirement Gathering",
-    value: "Requirement Gathering",
+    id: "Requirement Gathering",
   },
 ];
 
 const clientOptions: SelectOptions[] = [
   {
     name: "Oowlish",
-    value: "oowlish",
+    id: "oowlish",
   },
   {
     name: "Tesla Inc.",
-    value: "tesla",
+    id: "tesla",
   },
 ];
 
 const clientFocalPoint: SelectOptions[] = [
   {
     name: "Agustin Bocco",
-    value: "augustin_bocco",
+    id: "augustin_bocco",
   },
 ];
 
@@ -86,6 +49,21 @@ const ReportForm = () => {
   const handleSubmit = () => {
     console.log("submit");
   };
+
+  const [taskOptions, setTaskOptions] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await timeTrackerApiInstance.get("/tasks");
+        setTaskOptions(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <aside className="w-full lg:w-1/4 bg-white p-8 shadow-lg">
@@ -96,7 +74,11 @@ const ReportForm = () => {
           <Select label="Task:" name="task" options={taskOptions} />
           <Select label="Subtask:" name="subtask" options={subTaskOptions} />
           <Select label="Client:" name="client" options={clientOptions} />
-          <Select label="Focal Point:" name="focalPoint" options={clientFocalPoint} />
+          <Select
+            label="Focal Point:"
+            name="focalPoint"
+            options={clientFocalPoint}
+          />
         </div>
         <div className="flex justify-end mt-4">
           <button
