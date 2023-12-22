@@ -1,5 +1,5 @@
 import LoginPage from "../views/LoginPage";
-import TimeEntryForm from "../views/TimeEntryForm";
+import HomePage from "../views/HomePage";
 
 export const routes = [
   {
@@ -9,7 +9,7 @@ export const routes = [
   },
   {
     path: "/home",
-    element: <TimeEntryForm />,
+    element: <HomePage />,
     private: true,
   },
 ];
