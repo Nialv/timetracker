@@ -5,9 +5,9 @@ export async function seed(knex: Knex): Promise<void> {
     throw new Error('Cannot run seeds in production');
   }
   // Deletes ALL existing entries for cleanliness
-  await knex('users').del();
+  await knex('users_auth').del();
 
-  await knex('users').insert([
+  await knex('users_auth').insert([
     {
       username: 'ronnie',
       email: 'sronnieb@example.com',

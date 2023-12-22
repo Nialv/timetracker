@@ -1,4 +1,86 @@
+import { SelectOptions } from "../interfaces/SelectOptions";
 import CalendarComponent from "./CalendarComponent";
+import Select from "./Select";
+
+const taskOptions: SelectOptions[] = [
+  {
+    name: "Planning & Analysis",
+    value: "Planning & Analysis",
+  },
+  {
+    name: "Design",
+    value: "Design",
+  },
+  {
+    name: "Development",
+    value: "Development",
+  },
+  {
+    name: "Testing",
+    value: "Testing",
+  },
+  {
+    name: "Maintenance and Monitoring",
+    value: "Maintenance and Monitoring",
+  },
+  {
+    name: "Documentation",
+    value: "Documentation",
+  },
+  {
+    name: "Collaboration and Review",
+    value: "Collaboration and Review",
+  },
+  {
+    name: "Continuous Learning and Adaptation",
+    value: "Continuous Learning and Adaptation",
+  },
+  {
+    name: "Security",
+    value: "Security",
+  },
+];
+
+const subTaskOptions: SelectOptions[] = [
+  {
+    name: "Requirement Gathering",
+    value: "Requirement Gathering",
+  },
+  {
+    name: "Architecture Design",
+    value: "Architecture Design",
+  },
+  {
+    name: "UI/UX Design",
+    value: "UI/UX Design",
+  },
+  {
+    name: "Database Design",
+    value: "Database Design",
+  },
+  {
+    name: "Requirement Gathering",
+    value: "Requirement Gathering",
+  },
+];
+
+const clientOptions: SelectOptions[] = [
+  {
+    name: "Oowlish",
+    value: "oowlish",
+  },
+  {
+    name: "Tesla Inc.",
+    value: "tesla",
+  },
+];
+
+const clientFocalPoint: SelectOptions[] = [
+  {
+    name: "Agustin Bocco",
+    value: "augustin_bocco",
+  },
+];
 
 const ReportForm = () => {
   const handleSubmit = () => {
@@ -11,24 +93,10 @@ const ReportForm = () => {
         <h2 className="text-xl font-semibold text-gray-800">Report Form</h2>
         <div className="space-y-4">
           <CalendarComponent />
-          <div>
-            <label
-              htmlFor="task"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Task
-            </label>
-            <select
-              id="task"
-              name="task"
-              className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 rounded-md shadow-sm transition duration-150 ease-in-out"
-            >
-              <option value="test">test</option>
-            </select>
-          </div>
-
-          {/* Subtask selector */}
-          {/* ... (other select elements with the same styling as above) */}
+          <Select label="Task:" name="task" options={taskOptions} />
+          <Select label="Subtask:" name="subtask" options={subTaskOptions} />
+          <Select label="Client:" name="client" options={clientOptions} />
+          <Select label="Focal Point:" name="focalPoint" options={clientFocalPoint} />
         </div>
         <div className="flex justify-end mt-4">
           <button

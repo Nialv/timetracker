@@ -22,7 +22,7 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "dev": "nodemon src/server.ts",
-    "db:create": "knex migrate:make --knexfile src/knexfile.ts --migrations-directory src/database/migrations -x ts $1",
+    "db:create": "knex migrate:make --knexfile src/knexfile.ts --migrations-directory database/migrations -x ts $1",
     "db:seed": "knex seed:make $1 --knexfile src/knexfile.ts",
     "db:run": "knex migrate:latest --knexfile src/knexfile.ts",
     "db:run:seed": "knex seed:run --knexfile src/knexfile.ts"
