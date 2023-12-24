@@ -1,5 +1,5 @@
-import { capitalize } from "helpers/capitalize";
-import { SelectOptions } from "interfaces/SelectOptions";
+import { capitalize } from "@helpers/capitalize";
+import { SelectOptions } from "@interfaces/SelectOptions";
 
 const Select = ({
   label,

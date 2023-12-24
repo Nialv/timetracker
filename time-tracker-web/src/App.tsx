@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./store";
-import PrivateRouteValidation from "./routes/privateRouteValidation";
-import { routes } from "./routes/routeConfig";
+import store from "@store/index";
+import PrivateRouteValidation from "@routes/privateRouteValidation";
+import { routes } from "@routes/routeConfig";
 
 function App() {
   return (

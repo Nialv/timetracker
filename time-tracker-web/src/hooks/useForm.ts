@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Login } from "../interfaces/Login";
+import { Login } from "@interfaces/Login";
 
 export const useForm = (initialState: Login) => {
   const [form, setForm] = useState(initialState);

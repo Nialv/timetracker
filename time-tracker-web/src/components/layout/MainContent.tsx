@@ -1,4 +1,4 @@
-import TimeActivityReport from "../TimeActivityReport";
+import TimeActivityReport from "@components/TimeActivityReport";
 
 const MainContent = () => {
   return (

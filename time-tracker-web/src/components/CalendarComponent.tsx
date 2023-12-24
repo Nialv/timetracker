@@ -5,7 +5,7 @@ import 'react-calendar/dist/Calendar.css';
 const CalendarComponent = () => {
   const [date, setDate] = useState<Date>(new Date());
 
-  const handleChange = (newDate: Date | null, event: MouseEvent<HTMLButtonElement>) => {
+  const handleChange = (newDate: any) => {
     if (newDate) {
       setDate(newDate);
     }

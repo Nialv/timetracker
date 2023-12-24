@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from '../assets/oowlish-logo.png'; 
+import logo from '@assets/oowlish-logo.png'; 
 
 type NavItem = {
   name: string;

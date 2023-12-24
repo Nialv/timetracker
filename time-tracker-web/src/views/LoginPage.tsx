@@ -4,10 +4,10 @@ import React, { useState } from "react";
 import Cookies from 'js-cookie'
 import axios from "axios";
 
-import { login } from "../reducers/authReducer";
-import logo from "../assets/oowlish.png";
-import { useForm } from "../hooks/useForm";
-import { Login } from "../interfaces/Login";
+import { login } from "@reducers/authReducer";
+import logo from "@assets/oowlish.png";
+import { useForm } from "@hooks/useForm";
+import { Login } from "@interfaces/Login";
 
 const initialState: Login = {
   username: "",

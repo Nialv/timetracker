@@ -1,6 +1,6 @@
-import Navbar from "../components/Navbar";
-import MainContent from "../components/MainContent";
-import ReportForm from "../components/ReportForm";
+import Navbar from "@components/layout/Navbar";
+import MainContent from "@components/layout/MainContent";
+import ReportForm from "@components/ReportForm";
 
 const HomePage = () => {
   return (

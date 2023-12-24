@@ -1,8 +1,8 @@
-import { SelectOptions } from "interfaces/SelectOptions";
-import CalendarComponent from "./CalendarComponent";
-import Select from "./common/Select";
+import { SelectOptions } from "@interfaces/SelectOptions";
+import CalendarComponent from "@components/CalendarComponent";
+import Select from "@components/common/Select";
 import { useEffect, useState } from "react";
-import timeTrackerApiInstance from "config/axios";
+import timeTrackerApiInstance from "@config/axios";
 
 const subTaskOptions: SelectOptions[] = [
   {
