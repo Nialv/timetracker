@@ -1,6 +1,10 @@
 import { Knex } from 'knex';
 
 export async function seed(knex: Knex): Promise<void> {
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('Cannot run seeds in production');
+  }
+  
   await knex('tasks').del();
 
   await knex('tasks').insert([

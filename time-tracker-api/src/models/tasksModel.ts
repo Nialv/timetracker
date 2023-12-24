@@ -8,7 +8,7 @@ export async function getTaskById(id: string): Promise<Task | null> {
 }
 
 export const getAllTasks = async (): Promise<Task[] | []> => {
-  return knexTableName().select('id').select('name').where({ status: true });
+  return knexTableName().select('id', 'name').where({ status: true });
 };
 
 export const insertTask = async (task: Task): Promise<Task> => {

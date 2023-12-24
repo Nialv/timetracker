@@ -11,12 +11,14 @@ export async function seed(knex: Knex): Promise<void> {
     {
       username: 'ronnie',
       email: 'sronnieb@example.com',
-      password: '$2a$10$vnQwfQshtWzy8p0OOrB2te./jcHXNya7Q0AxvrPvH0BUf.sQ1UyWO'
+      password: '$2a$10$vnQwfQshtWzy8p0OOrB2te./jcHXNya7Q0AxvrPvH0BUf.sQ1UyWO',
+      status: true
     },
     {
-      username: 'jane_doe',
-      email: 'jane@example.com',
-      password: 'hashed_password2'
+      username: 'erick',
+      email: 'erick@example.com',
+      password: '$2a$10$vnQwfQshtWzy8p0OOrB2te./jcHXNya7Q0AxvrPvH0BUf.sQ1UyWO',
+      status: false
     }
     // ... more user entries ...
   ]);
