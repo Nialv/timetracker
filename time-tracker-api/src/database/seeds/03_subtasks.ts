@@ -2,7 +2,10 @@ import { randomUUID } from 'crypto';
 import { Knex } from 'knex';
 
 export async function seed(knex: Knex): Promise<void> {
-  // Deletes ALL existing entries
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('Cannot run seeds in production');
+  }
+  
   await knex('subtasks').del();
 
   // Inserts seed entries
@@ -45,7 +48,7 @@ export async function seed(knex: Knex): Promise<void> {
     // Subtasks for "Development"
     { id: randomUUID(), name: 'Coding', status: true, task_id: '4b682a4b-7c6a-4e3a-8533-0e9c414f54bf' },
     {
-      id: randomUUID(),
+      id: '2bd839e7-2afd-415e-bfdc-bb7779b5265a',
       name: 'API Development',
       status: true,
       task_id: '4b682a4b-7c6a-4e3a-8533-0e9c414f54bf'

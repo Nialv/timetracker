@@ -5,7 +5,7 @@ export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('subtasks', table => {
     table.uuid('id').primary().defaultTo(knex.raw('uuid_generate_v4()'));
     table.string('name').notNullable();
-    table.boolean('status').notNullable().defaultTo(false);
+    table.boolean('status').notNullable().defaultTo(true);
     table.uuid('task_id').references('id').inTable('tasks').onDelete('CASCADE');
     table.timestamps(true, true);
   });
