@@ -10,6 +10,7 @@ export async function up(knex: Knex): Promise<void> {
     table.string('phone_number').nullable();
     table.text('address').nullable();
     table.string('industry').nullable();
+    table.boolean('status').notNullable().defaultTo(true);
     table.timestamps(true, true);
   });
 }
