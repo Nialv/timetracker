@@ -18,7 +18,7 @@ export async function up(knex: Knex): Promise<void> {
     table.string('position').nullable();
     table.string('country');
     table.string('working_hours'); // Working hours (e.g., '8 hrs')
-    table.integer('birth_year').nullable(); // Birth year
+    table.date('born_date').nullable(); // Birthday
     table.enum('employment_type', ['full-time', 'part-time']);
     table.timestamps(true, true);
   });
