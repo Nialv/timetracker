@@ -1,3 +1,12 @@
+This is a prototype project using multiple techs like redux, react, jwt, node, docker, docker-compose, sh bash actions, github, tailwind, cors config, cookies, and other. 
+
+** (Oowlish was the company where I first present this project, but this code is totally mine and all in here is my property, its still WIP).
+
+The idea of this repo is to show a bit of the knowledge for posible clients, the reason why I don't have multiple proyects is cause I've been usually working full time on multiple companies with different clients, and their code is private so I can't display it in here.
+
+This project was build from scratch and following the most common patters, like display prototypes in figma, db schema elaboration, etc.
+
+
 # Oowlish Time Tracker App
 
 - Set up Frontend (FE):
